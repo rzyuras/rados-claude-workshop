@@ -1,0 +1,29 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "command": ".claude/hooks/block-secrets.sh"
+      },
+      {
+        "matcher": "Edit|Write",
+        "command": ".claude/hooks/lint-on-save.sh"
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git status)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git branch*)",
+      "Bash(git add*)",
+      "Bash(git commit*)",
+      "Bash(git push*)",
+      "Bash(gh pr *)",
+      "Bash(gh repo *)",
+      "Bash(gh run *)",
+      "Bash(ls *)"
+    ]
+  }
+}
