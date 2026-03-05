@@ -11,6 +11,7 @@ Claude Code config kit: agents, skills, and hooks. Clone, symlink as `.claude/` 
 | `hooks/` | 2 hooks: lint-on-save, block-secrets |
 | `CLAUDE.md` | Template with placeholders — `/init` fills it |
 | `settings.local.json` | Hook config + minimal permissions |
+| `examples/` | Concrete skill, agent, and CLAUDE.md examples |
 | `docs/` | Customization guide |
 
 ## Quick Start
@@ -80,6 +81,24 @@ These skills read your repo and generate config for you:
 |------|---------|--------|
 | `lint-on-save.sh` | PostToolUse (Edit/Write) | Runs eslint, rubocop, or ruff on edited file. Exit 2 = warning. |
 | `block-secrets.sh` | PostToolUse (Edit/Write) | Blocks writes to .env, .pem, credentials. Detects API key patterns. Exit 1 = block. |
+
+## Examples
+
+The `examples/` directory shows what the META skills **actually produce** — concrete, production-quality output:
+
+| Example | Shows |
+|---------|-------|
+| [`examples/skills/controllers/`](examples/skills/controllers/SKILL.md) | Express controller skill with `endpoint()` wrapper, response helpers, middleware chain, 8 ALWAYS/NEVER rules |
+| [`examples/skills/actors/`](examples/skills/actors/SKILL.md) | Ruby service actor skill with actor type taxonomy, Play/Simple/Resilient patterns, error handling, 9 rules |
+| [`examples/skills/components/`](examples/skills/components/SKILL.md) | React Native component skill with design tokens, MVVM split, component library usage, 7 rules |
+| [`examples/agents/api-dev.md`](examples/agents/api-dev.md) | Domain-specific agent that writes API endpoints — constrained tools + linked skills |
+| [`examples/generated-claude-md.md`](examples/generated-claude-md.md) | What `/init` generates for a Node.js + Express project |
+
+**These are the level of detail you should aim for.** A good skill has:
+- Templates with real import paths and code patterns
+- 7+ ALWAYS/NEVER rules extracted from your codebase
+- At least one complete, real example
+- A verification checklist
 
 ## Customizing
 
